@@ -325,12 +325,15 @@ margin-right: 0;
   position: absolute;
   top: 8px;
   right: 8px;
+  cursor: pointer;
 
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1px solid var(--filtr-text-color);
   background-color: var(--hero-text-color);
+
+  transition: fill var(--transition-durattion) var(--timing-function);
 }
 
 .form-close{
@@ -338,14 +341,12 @@ margin-right: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
   
   fill: var(--title-text-color);
-  transition: fill var(--transition-durattion) var(--timing-function);
 }
 
-.form-close:focus,
-.form-close:hover{
+.order-close:focus > .form-close,
+.order-close:hover> .form-close{
   fill: var(--accent-text-color);
 }
 
@@ -391,13 +392,9 @@ color: var(--title-text-color);
 
   border: 1px solid var(--form-input-color);
   border-radius: 4px;
+  outline: none;
 
-  transition: outline-color var(--transition-durattion) var(--timing-function);
-}
-
-.form-input:focus,
-.form-textarea:focus{
-  outline-color:var(--accent-text-color);
+  transition: border-color var(--transition-durattion) var(--timing-function);
 }
 
 .form-icon{
@@ -410,8 +407,12 @@ color: var(--title-text-color);
   transition: fill var(--transition-durattion) var(--timing-function);
 }
 
-.form-input:focus~.form-icon {
+.form-input:focus, 
+.form-input:hover,
+.form-input:focus ~ .form-icon,
+.form-input:hover ~ .form-icon {
   fill: var(--accent-text-color);
+  border-color: var(--accent-text-color);
 }
 
 .form-textarea{
@@ -420,9 +421,15 @@ color: var(--title-text-color);
   width: 100%;
   height: 120px;
   resize: none;
+  outline: none;
 
   border: 1px solid var(--form-input-color);
   border-radius: 4px;
+}
+
+.form-textarea:focus,
+.form-textarea:hover {
+  border-color: var(--accent-text-color);
 }
 
 .form-checkbox{
@@ -473,6 +480,10 @@ color: var(--title-text-color);
   display: inline-block;
   font-family: inherit;
   transition: transform var(--transition-durattion) var(--timing-function);;
+}
+
+.checkbox-hidden:focus + .checkbox-icon{
+  border: 2px solid var(--accent-text-color);
 }
 
 .form-submit{
@@ -818,7 +829,7 @@ margin-bottom: 9px;
   margin-right: 12px;
 }
 
-.footer-form{
+.user-email{
   display: flex;
   align-items: flex-end;
 }
@@ -838,11 +849,18 @@ margin-bottom: 9px;
   border: 1px solid var(--footer-input-color);
   border-radius: 4px;
 
-  transition: outline var(--transition-durattion) var(--timing-function);
+  transition: border var(--transition-durattion) var(--timing-function);
 }
 
 .user-email input:focus{
-outline: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+border: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.footer-input{
+  margin-right: 12px;
+
+  font-family: inherit;
+  color: var(--primary-text-color);
 }
 
 .footer-subscribe{
